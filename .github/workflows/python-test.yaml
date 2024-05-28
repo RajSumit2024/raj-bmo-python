@@ -16,4 +16,4 @@ jobs:
 
     steps:
     - name: check python version on platform ${{ matrix.os}}
-      run: python -v
+      run: python -V
