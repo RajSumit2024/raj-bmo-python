@@ -1,0 +1,16 @@
+# create pipeline with some name
+name: raj app conatinerization pipeline
+# Trigger -- when this pipeline should start
+on:
+  push:
+    branches:
+    - "main"
+
+# jobs for performing operation
+jobs:
+  raj-image-build:
+    runs-on: ubuntu-latest
+    # this server will be provision by github backen for this job
+    steps:
+    - name: check python version
+      run: python -v
