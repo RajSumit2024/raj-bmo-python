@@ -1,5 +1,5 @@
 # create pipeline with some name
-name: raj app conatinerization pipeline
+name: ci workflow for pythin app test
 # Trigger -- when this pipeline should start
 on:
   push:
@@ -8,9 +8,12 @@ on:
 
 # jobs for performing operation
 jobs:
-  raj-image-build:
-    runs-on: ubuntu-latest
-    # this server will be provision by github backen for this job
+  raj-python-app-test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:  [ubuntu-latest,windows-latest,macos-latest]
+
     steps:
-    - name: check python version
+    - name: check python version on platform ${{ matrix.os}}
       run: python -v
